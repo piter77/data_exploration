@@ -15,7 +15,7 @@ api = tweepy.API(auth,wait_on_rate_limit=True)
 conn = psycopg2.connect("dbname=postgres user=postgres password=postgres", host="localhost")
 cur = conn.cursor()
 
-tags = ["#pis", "#wybory", "#WyborySamorzadowe", "#PlatformaObywatelska", "#wybory2018"]\
+tags = ["#pis", "#wybory", "#WyborySamorzadowe", "#PlatformaObywatelska", "#wybory2018", "#pls", "#nowoczesna"]\
 
 # wsystkie IDki musza byc big intami niestety :/ nazwy tabel moga sie roznic od tych co podeslales w dumpie bo testowalem lokalnie
 
