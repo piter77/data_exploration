@@ -8,6 +8,7 @@ fajny artykul nie bazujacy na zadnym machine learningu tylko na analizie:
 https://www.researchgate.net/publication/280782550_Fake_Twitter_accounts_Profile_characteristics_obtained_using_an_activity-based_pattern_detection_approach
 
 Boty:
+niezweryfikowani użytkownic
 Posiadaja najczesciej malo personalnych informacji
 Podobny content wiadomosci - czasem nawet idealnie ta sama wiadomosc
 Ta sama tresc w różnycjezykach
@@ -17,6 +18,8 @@ Co wiecej takie boty moga retweetowac inne boty czyniac fake newsy bardziej 'hot
 Badania wskazuja, że szansa na retweety fake newsów wynosi aż 70% (chdozi o to, że jest 70% prawdopodobieństwo, że dana osoba zretweetuje fake news'a)
 
 Botcheck.me
+
+https://www.prattlibrary.org/research/tools/index.aspx?cat=90&id=4735
 
 z artykulu:
 
