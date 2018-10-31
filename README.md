@@ -21,6 +21,7 @@ Botcheck.me
 
 https://www.sciencemag.org/news/2018/03/fake-news-spreads-faster-true-news-twitter-thanks-people-not-bots
 https://www.prattlibrary.org/research/tools/index.aspx?cat=90&id=4735
+https://www.prospectmagazine.co.uk/science-and-technology/the-science-of-fake-news
 
 z artykulu:
 
