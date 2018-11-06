@@ -37,6 +37,7 @@ for tag in tags:
     for tweet in tweepy.Cursor(api.search,q=tag,
                            lang="pl",
                            since="2018-10-10").items():
+        print(tweet)
         if hasattr(tweet, 'retweeted_status') or "RT @" in tweet.text.encode('utf-8'):
             print('retweet')
             cur.execute(insert_retweet_sql, (tweet.author.id, tweet.id, tweet.created_at))
