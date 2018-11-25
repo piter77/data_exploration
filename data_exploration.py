@@ -17,8 +17,6 @@ cur = conn.cursor()
 
 tags = ["#pis", "#wybory", "#WyborySamorzadowe", "#PlatformaObywatelska", "#wybory2018", "#pls", "#nowoczesna"]\
 
-# wsystkie IDki musza byc big intami niestety :/ nazwy tabel moga sie roznic od tych co podeslales w dumpie bo testowalem lokalnie
-
 insert_tag_sql = "INSERT INTO hashtag (phrase) VALUES (%s) RETURNING id"
 insert_retweet_sql = "INSERT INTO re_tweet (author_id, tweet_id, date) VALUES (%s, %s, %s)"
 insert_user_sql = "INSERT INTO users (id, name) VALUES (%s, %s)"
@@ -49,4 +47,5 @@ for tag in tags:
             conn.commit()
 
         csvWriter.writerow([tweet.created_at, tweet.text.encode('utf-8')])
+
 
