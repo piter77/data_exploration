@@ -12,6 +12,11 @@ get_users_that_tweeted_after_creation = "select author.id from tweet inner join 
 
 global_analysis = "select source_device, verified, author_id, tweet.id, favorite_count, author.followers_count, tweet.date::date - author.created_at::date from tweet inner join author on tweet.author_id::text = author.id::text order by favorite_count desc;"
 
+retweeters_sql = "select re_tweet.tweet_id, re_tweet.author_id from tweet inner join re_tweet on re_tweet.retweeted_tweet_id::text = tweet.id::text;"
+
+who_how_many_times_retweeted = "select count(re_tweet.tweet_id), re_tweet.author_id from tweet inner join re_tweet on re_tweet.retweeted_tweet_id::text = tweet.id::text group by re_tweet.author_id order by count(re_tweet.tweet_id) desc;"
+
+
 cur.execute(get_tweets_sql)
 conn.commit()
 
@@ -103,4 +108,10 @@ print(len(similarities))
 
 
 
+cur.execute(retweeters_sql, ())
+conn.commit()
+retweeters = cur.fetchall()
 
+
+for retweeter in retweeters:
+    print(str(int(retweeter[0])) + "," + str(int(retweeter[1])))
