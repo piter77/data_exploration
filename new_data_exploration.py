@@ -169,6 +169,14 @@ authors_with_more_than_avg_retweets = filter(lambda x: x[4] >= retweet_avg, all)
 authors_with_more_than_avg_favorites = filter(lambda x: x[5] >= favorite_avg, all)
 authors_verified = filter(lambda x: x[6], all)
 
+print(len(authors_with_more_than_avg_followers))
+print(len(authors_with_more_than_avg_friends))
+print(len(authors_with_more_than_avg_statuses))
+print(len(authors_with_more_than_avg_retweets))
+print(len(authors_with_more_than_avg_favorites))
+print(len(authors_verified))
+
+
 # vvv followers & friends vvv
 print(len(set(authors_with_more_than_avg_followers).intersection(set(authors_with_more_than_avg_friends))))
 
