@@ -28,3 +28,7 @@ select avg(r.tweet_fav), stddev_samp(r.tweet_fav), min(r.tweet_fav), max(r.tweet
 
 -- srednia ilość znaków w tweet autorow
 select avg(r.tweet_len), stddev_samp(r.tweet_len), min(r.tweet_len), max(r.tweet_len) from (select avg(array_length(regexp_split_to_array(tweet.content, ' '), 1)) as tweet_len from tweet group by author_id) as r; 
+
+
+
+select count(id) as ct, author_id from tweet group by author_id order by ct desc
