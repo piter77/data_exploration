@@ -1,24 +1,25 @@
-# data_exploration
-Student project for Data Exploration classes
+# Data exploration (Eksploracja Danych)
+
+## Student roject for university classes
 
 
-Fake news !
-fajny artykul nie bazujacy na zadnym machine learningu tylko na analizie:
+### Folders:
 
-https://www.researchgate.net/publication/280782550_Fake_Twitter_accounts_Profile_characteristics_obtained_using_an_activity-based_pattern_detection_approach
+Documents - contains presentation, short note descibing the topic of the project and presentation of results  
+Scripts - contains all the project code  
+DB dumps - backup scripts for database with tweets  
 
-Boty:
-niezweryfikowani użytkownic
-Posiadaja najczesciej malo personalnych informacji
-Podobny content wiadomosci - czasem nawet idealnie ta sama wiadomosc
-Ta sama tresc w różnycjezykach
-Follower count'y takich profili równe 0 
-Sporo retweetów jednego post'a przez wiele kont - wszystkie moga byc botami ale z racji tego, że jest mlo retweetów per każdy z nich można tego nie zauwc - co ludzie tworzacy boty chca wykorzystac
-Co wiecej takie boty moga retweetowac inne boty czyniac fake newsy bardziej 'hot'
-Badania wskazuja, że szansa na retweety fake newsów wynosi aż 70% (chdozi o to, że jest 70% prawdopodobieństwo, że dana osoba zretweetuje fake news'a)
 
-Botcheck.me
+### Running project
 
+- scripts require python2 with jupyter notebook and postgreSQL database
+- scripts for download were adjusted on the go depending on what we wanted to download at the moment
+- there are two scripts for analysis in notebooks, and two in python files and to run them you need to have populated DB
+
+
+### Literature:
+
+- https://www.researchgate.net/publication/280782550_Fake_Twitter_accounts_Profile_characteristics_obtained_using_an_activity-based_pattern_detection_approach
 - https://www.sciencemag.org/news/2018/03/fake-news-spreads-faster-true-news-twitter-thanks-people-not-bots
 - https://www.prattlibrary.org/research/tools/index.aspx?cat=90&id=4735
 - https://www.prospectmagazine.co.uk/science-and-technology/the-science-of-fake-news
@@ -27,14 +28,3 @@ Botcheck.me
 - https://www.sciencenews.org/article/can-computer-programs-flag-fake-news
 - https://oko.press/sfalszowano-wybory-krzyczaly-w-sieci-podejrzane-konta-tak-dzialaja-rosyjskie-trolle/
 - https://klubjagiellonski.pl/2018/11/06/demokracja-w-dobie-fake-newsow-jak-rosyjskie-farmy-trolli-mieszaly-w-amerykanskich-wyborach/
-
-z artykulu:
-
-Users, którzy maa to samo name, description, location
-Waski zakres czasu update'ów
-Grafiki - czy te same ? porownanie zdjec moze wiele powiedziec
-Patterns jezeli chodzi o imiona, mariola23, mariolamariola23, etc...
-
-Machine Learning ??? Kwestia tego, że trzeba mic sporo danych i dane do nauki algorytmu. Lub próbowc bez ale trzeba sie liczyc z ryzykiem, ze te poprawne tweety moga zostac zakwalifikowane jako fake'i
-
-Skrypty wymagaja pythona w wersji 2,biblioteka do lacznoscia z postgresem nie dziala z pythonem 3.
