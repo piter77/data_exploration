@@ -16,16 +16,12 @@ retweeters_sql = "select re_tweet.tweet_id, re_tweet.author_id from tweet inner 
 
 who_how_many_times_retweeted = "select count(re_tweet.tweet_id), re_tweet.author_id from tweet inner join re_tweet on re_tweet.retweeted_tweet_id::text = tweet.id::text group by re_tweet.author_id order by count(re_tweet.tweet_id) desc;"
 
-
 cur.execute(get_tweets_sql)
 conn.commit()
 
 all = cur.fetchall()  # first of all
 first = all[0]
 second = all[1]
-
-print(first[1])  # print content [1]
-print(second[1])
 
 
 def semantic_similarity(text1, text2):
@@ -46,72 +42,61 @@ def semantic_similarity(text1, text2):
 
 similarities = []
 
-
 for text1 in all:
     for text2 in all:
         if text1 is not text2:
             similarity = semantic_similarity(text1[1], text2[1])
-            if similarity > 0.1:
-                similarities.append((text1, text2))
+            if similarity > 0.11:
+                similarities.append((text1[1], text2[1]))
 
 print(similarities)
-print(len(similarities))
 
 
-# def is_fake_account(account):
-#     value = 1.0
-#
-#     if account[3] > 30:  # followers
-#         value *= 0.53
-#
-    # print(account[0])
-    # cur.execute(user_tweets, (account[0],))
-    # conn.commit()
-#
-#     contains_hastag = 1
-#     all = cur.fetchall()
-#     for tweet in all:
-#         if "#" in tweet:
-#             contains_hastag = 0.96
-#
-#     value *= contains_hastag
-#
-#     if account[4] > 50:
-#         value *= 0.01
-#
-#     return value <= 0.5
-#
-#
-# cur.execute(get_authors_sql)
-# conn.commit()
-#
-# all = cur.fetchall()
-#
-# print(is_fake_account(all[0]))
-#
-# fakes = []
-#
-# for account in all:
-#     if not is_fake_account(account):
-#         fakes.append(account)
-#
-# print(len(fakes))
-#
-# print(fakes)
-#
-# for fake in fakes:
-#     cur.execute(user_tweets, (fake[0],))
-#     conn.commit()
-#
-#     tweets = cur.fetchall()
-#     print(tweets)
+def is_fake_account(account):
+    value = 1.0
+
+    if account[3] > 30:  # followers
+        value *= 0.53
+
+    cur.execute(user_tweets, (account[0],))
+    conn.commit()
+
+    contains_hastag = 1
+    all = cur.fetchall()
+    for tweet in all:
+        if "#" in tweet:
+            contains_hastag = 0.96
+
+    value *= contains_hastag
+
+    if account[4] > 50:
+        value *= 0.01
+
+    return value <= 0.6
 
 
-
-cur.execute(retweeters_sql, ())
+cur.execute(get_authors_sql)
 conn.commit()
-retweeters = cur.fetchall()
 
+all = cur.fetchall()
 
-for retweeter in retweeters:
-    print(str(int(retweeter[0])) + "," + str(int(retweeter[1])))
+fakes = []
+
+for account in all:
+    if not is_fake_account(account):
+        fakes.append(account[2])
+
+for fake in fakes:
+    cur.execute(user_tweets, (fake[0],))
+    conn.commit()
+
+    tweets = cur.fetchall()
+    print(len(tweets))
+
+# cur.execute(retweeters_sql, ())
+# conn.commit()
+# retweeters = cur.fetchall()
+#
+#
+# for retweeter in retweeters:
+#     print(str(int(retweeter[0])) + "," + str(int(retweeter[1])))

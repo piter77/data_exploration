@@ -35,6 +35,6 @@ Waski zakres czasu update'ów
 Grafiki - czy te same ? porownanie zdjec moze wiele powiedziec
 Patterns jezeli chodzi o imiona, mariola23, mariolamariola23, etc...
 
-
-
 Machine Learning ??? Kwestia tego, że trzeba mic sporo danych i dane do nauki algorytmu. Lub próbowc bez ale trzeba sie liczyc z ryzykiem, ze te poprawne tweety moga zostac zakwalifikowane jako fake'i
+
+Skrypty wymagaja pythona w wersji 2,biblioteka do lacznoscia z postgresem nie dziala z pythonem 3.
